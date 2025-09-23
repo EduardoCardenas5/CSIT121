@@ -1,0 +1,7 @@
+body {background-color: bisque;}
+#special{background-color: darksalmon;}
+.highlight{background-color: coral;}
+footer, header {background-color: rgb(221, 203, 214);}
+h1, h2 {color: crimson;}
+main a:link{color: darkorange;}
+main a:visited{color: darkviolet;}
