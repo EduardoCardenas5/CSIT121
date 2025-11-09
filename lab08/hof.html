@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 08 — HOF</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    body { font-family: Arial, sans-serif; }
+    header.site-header { position: sticky; top: 0; background: DarkGray; border: 2px solid DarkSlateGray; padding: 10px; z-index: 100; }
+
+    nav.primary ul { list-style: none; display: flex; padding: 0; margin: 0; }
+    nav.primary li { margin-right: 10px; }
+    nav.primary a { text-decoration: none; color: black; padding: 6px 10px; border-radius: 4px; }
+    nav.primary a:hover { background: LightGray; }
+    nav.primary a[aria-current="page"] { background: blueviolet; color: white; font-weight: bold; }
+
+    .is-affixed { box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    .skip-link { position:absolute; top:-40px; left:0; background:white; padding:8px; border:1px solid black; }
+    .skip-link:focus { top:5px; }
+  </style>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="primary">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="ravens.html">Ravens</a></li>
+      <li><a href="hof.html">HOF</a></li>
+      <li><a href="personal.html">Personal Picture</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <header><h1>Lab 08 Multi Web Page</h1></header>
+
+  <section>
+    <h2>2nd Image</h2>
+    <p>This page will have my second image that will be a gif.</p>
+
+    <img src="images/halloffame.gif" alt="gif of ravens players" style="width: 400px; height: 300px;">
+
+    <h2>About</h2>
+    <p>This gif shows Ray Lewis and Ed Reed, two Hall of Fame players for the Baltimore Ravens.</p>
+
+    <h2>Source</h2>
+    <ul>
+      <li><a href="https://giphy.com/gifs/nfl-sports-sport-nfl100-ifBHrvJbqLnsJkobhl" target="_blank">GIPHY.COM</a></li>
+    </ul>
+  </section>
+  <footer>&copy;<strong>2025 Eduardo Cardenas</strong></footer>
+</main>
+<script>
+window.onscroll = function() {
+  var header = document.querySelector('.site-header');
+  if (window.scrollY > 50) {
+    header.classList.add('is-affixed');
+  } else {
+    header.classList.remove('is-affixed');
+  }
+};
+var currentPage = window.location.pathname.split("/").pop() || "hof.html";
+var links = document.querySelectorAll("nav.primary a");
+for (var i = 0; i < links.length; i++) {
+  if (links[i].getAttribute("href") === currentPage) {
+    links[i].setAttribute("aria-current","page");
+  }
+}
+</script>
+</body>
+</html>
