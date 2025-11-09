@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Feedback - NFL QB Tier List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="tierlist.html">Home</a> |
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <h1>Contact & Feedback 🏈</h1>
+  <p>Let me know what you think about my 2025 NFL Quarterback Tier List!</p>
+
+  <form action="#" method="post">
+    <fieldset>
+      <legend>Your Info</legend>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="comments">Comments:</label>
+      <textarea id="comments" name="comments" rows="4" cols="30" placeholder="Share your thoughts on the rankings..."></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Tier List Feedback</legend>
+
+      <!-- Question 1 -->
+      <p>Do you agree with Lamar Jackson being ranked #1?</p>
+      <label>
+        <input type="radio" name="lamar" value="yes"> Yes
+      </label>
+      <label>
+        <input type="radio" name="lamar" value="no"> No
+      </label>
+
+      <!-- Question 2 -->
+      <label for="move-up">Which QB deserves to move up the most?</label>
+      <select id="move-up" name="move-up">
+        <option value="mahomes">Patrick Mahomes</option>
+        <option value="allen">Josh Allen</option>
+        <option value="burrow">Joe Burrow</option>
+        <option value="maye">Drake Maye</option>
+        <option value="herbert">Justin Herbert</option>
+      </select>
+
+      <!-- Question 3 -->
+      <p>Which QB has the most potential for next season?</p>
+      <label><input type="checkbox" name="potential" value="lamar"> Lamar Jackson</label><br>
+      <label><input type="checkbox" name="potential" value="maye"> Drake Maye</label><br>
+      <label><input type="checkbox" name="potential" value="allen"> Josh Allen</label><br>
+      <label><input type="checkbox" name="potential" value="burrow"> Joe Burrow</label><br>
+      <label><input type="checkbox" name="potential" value="mahomes"> Patrick Mahomes</label>
+
+      <!-- Submit -->
+      <br><br>
+      <input type="submit" value="Submit Feedback">
+    </fieldset>
+  </form>
+</body>
+</html>
