@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bonus – Toggle Employee Data</title>
+
+    <!-- Code assisted by generative AI (ChatGPT) as per bonus instructions. -->
+
+    <!-- CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #7ce2af;
+        }
+
+        th {
+            background-color: #7c0f65;
+            color: white;
+        }
+
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 20px;
+            border: 4px solid rgb(55, 12, 211);
+            background: rgba(20, 192, 4, 0.5);
+            color: rgb(230, 36, 78);
+            outline: none;
+            border-radius: 30px;
+            font-size: 30px;
+            width: 500px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            color: black;
+            background: white;
+        }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+        // Tracks whether the table is currently visible
+        let tableOpen = false;
+
+        function toggleEmployeeData() {
+            const table = document.getElementById("employeeTable");
+            const button = document.getElementById("toggleButton");
+
+            if (!tableOpen) {
+                // Table is currently hidden -> load and show data
+                loadXMLDoc();
+                button.textContent = "Close Employee Data";
+                tableOpen = true;
+            } else {
+                // Table is currently visible -> hide it
+                table.innerHTML = "";
+                button.textContent = "Get Employee Data";
+                tableOpen = false;
+            }
+        }
+
+        function loadXMLDoc() {
+            let xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+
+                // Request finished and response is ready and status is "OK"
+                if (this.readyState == 4 && this.status == 200) {
+                    empDetails(this);
+                }
+            };
+
+            // employee.xml is the external xml file
+            xmlhttp.open("GET", "employee.xml", true);
+            xmlhttp.send();
+        }
+
+        function empDetails(xml) {
+            let xmlDoc = xml.responseXML;
+            let tableHTML =
+                `<tr><th>Firstname</th><th>Lastname</th>
+                    <th>Title</th><th>Division</th>
+                    <th>Building</th><th>Room</th>
+                </tr>`;
+
+            let employees = xmlDoc.getElementsByTagName("employee");
+
+            // Build table rows from XML data
+            for (let i = 0; i < employees.length; i++) {
+                tableHTML += "<tr><td>" +
+                    employees[i].getElementsByTagName("firstname")[0]
+                        .childNodes[0].nodeValue + "</td><td>" +
+                    employees[i].getElementsByTagName("lastname")[0]
+                        .childNodes[0].nodeValue + "</td><td>" +
+                    employees[i].getElementsByTagName("title")[0]
+                        .childNodes[0].nodeValue + "</td><td>" +
+                    employees[i].getElementsByTagName("division")[0]
+                        .childNodes[0].nodeValue + "</td><td>" +
+                    employees[i].getElementsByTagName("building")[0]
+                        .childNodes[0].nodeValue + "</td><td>" +
+                    employees[i].getElementsByTagName("room")[0]
+                        .childNodes[0].nodeValue + "</td></tr>";
+            }
+
+            document.getElementById("employeeTable").innerHTML = tableHTML;
+        }
+    </script>
+</head>
+
+<body>
+    <button
+        type="button"
+        class="button"
+        id="toggleButton"
+        onclick="toggleEmployeeData()">
+        Get Employee Data
+    </button>
+
+    <br><br>
+    <table id="employeeTable"></table>
+</body>
+</html>
