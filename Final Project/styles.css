@@ -1,0 +1,187 @@
+
+:root {
+  --primary: #244a73;
+  --accent: #4a90d9;
+  --light: #f2f2f2;
+  --highlight: #f4c27a;
+  --mint: #9edec3;
+  --text: #333333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background-color: #ffffff;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+header {
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  width: 50px;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+.main-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+}
+
+
+.main-nav a:hover,
+.main-nav a:focus {
+  background-color: var(--accent);
+}
+
+.main-nav a.active {
+  background-color: #ffffff;
+  color: var(--primary);
+}
+
+
+
+.hero {
+  background-image: url("banner.png");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 2.5rem 1rem;
+}
+
+.hero h2 {
+  margin-top: 0;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  background-color: var(--highlight);
+  color: #000000;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2rem;
+}
+
+section,
+aside,
+article {
+  margin-bottom: 1.5rem;
+}
+
+.highlight-box {
+  background-color: var(--mint);
+  padding: 1rem;
+}
+
+
+
+.services-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.services-table th,
+.services-table td {
+  border: 1px solid #dddddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.services-table thead {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.services-table tbody tr:nth-child(even) {
+  background-color: var(--light);
+}
+
+
+
+footer {
+  background-color: var(--primary);
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+
+
+.intro-layout {
+
+}
+
+@media (min-width: 768px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav {
+    margin-top: 0;
+  }
+
+  .intro-layout {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .intro-layout .intro-text {
+    flex: 2;
+  }
+
+  .intro-layout .highlight-box {
+    flex: 1;
+  }
+}
